@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="csu.db.bankmanage.persistence.UserMapper">
+
+    <cache/>
+    <select id="updateUserInfoByUserNum" statementType="CALLABLE">
+        {call updata_userinfo
+        (#{firstName, mode=IN},
+         #{lastName, mode=IN},
+         #{phone, mode=IN},
+         #{email, mode=IN},
+         #{position, mode=IN},
+         #{city, mode=IN},
+         #{address, mode=IN},
+         #{description, mode=IN},
+         #{userNum, mode=IN})}
+    </select>
+
+    <insert id="registerUser" parameterType="java.lang.String">
+        INSERT INTO USERINFO (FIRSTNAME, LASTNAME, EMAIL, PHONE, USERNUM, POSITION, CITY, ADDRESS, DESCRIPTION)
+        VALUES (#{firstName}, #{lastName}, NULL, NULL, #{userNum}, NULL, NULL, NULL, NULL)
+    </insert>
+
+    <select id="findUserByUserNum" parameterType="java.lang.String" resultType="csu.db.bankmanage.domain.User"  useCache="false">
+        SELECT * FROM USERINFO WHERE USERNUM=#{userNum}
+    </select>
+</mapper>

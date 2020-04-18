@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('myCard')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">CardNum</th>
+                            <th scope="col">CreateTime</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col">Cancel</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="card,state:${session.cardList}">
+                            <th scope="row" th:text="${state.count}"></th>
+                            <td th:text="${card['CARD_NUM']}"></td>
+                            <td th:text="${card['CREATE_TIME']}"></td>
+                            <td th:text="${card['BALANCE']}"></td>
+                            <td><a th:href="@{/cancelCard(cardId=${card['ID']})}">确认注销</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<div th:replace="commons/layout::end">
+
+</div>
+
+</body>
+</html>
+
+

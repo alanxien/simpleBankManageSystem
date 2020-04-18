@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('Home')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+
+        <!-- begin::container -->
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title d-flex align-items-start justify-content-between mb-0">
+                                        <span>Conversion Rate</span>
+                                        <span class="avatar">
+                                            <span class="avatar-title bg-success text-white rounded-circle">
+                                                <i class="fa fa-percent"></i>
+                                            </span>
+                                        </span>
+                                    </h6>
+                                    <div class="d-flex d-sm-block d-lg-flex align-items-end mb-3">
+                                        <h3 class="mb-0 mr-2">0.19%</h3>
+                                        <p class="small text-muted mb-0 line-height-20">
+                                            <span class="text-success">+ 1.2%</span> than last week
+                                        </p>
+                                    </div>
+                                    <canvas id="widget-chart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title d-flex align-items-start justify-content-between mb-0">
+                                        <span>Unique Purchases</span>
+                                        <span class="avatar">
+                                            <span class="avatar-title bg-warning text-white rounded-circle">
+                                                <i class="fa fa-dollar"></i>
+                                            </span>
+                                        </span>
+                                    </h6>
+                                    <div class="d-flex d-sm-block d-lg-flex align-items-end mb-3">
+                                        <h3 class="mb-0 mr-2">3,137</h3>
+                                        <p class="small text-muted mb-0 line-height-20">
+                                            <span class="text-danger">-1.2%</span> than last week
+                                        </p>
+                                    </div>
+                                    <canvas id="widget-chart2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title d-flex align-items-start justify-content-between mb-0">
+                                        <span>Order Quantity</span>
+                                        <span class="avatar">
+                                            <span class="avatar-title bg-danger text-white rounded-circle">
+                                                <i class="fa fa-cube"></i>
+                                            </span>
+                                        </span>
+                                    </h6>
+                                    <div class="d-flex d-sm-block d-lg-flex align-items-end mb-3">
+                                        <h3 class="mb-0 mr-2">1,650</h3>
+                                        <p class="small text-muted mb-0 line-height-20">
+                                            <span class="text-success">+ 2.1%</span> than last week
+                                        </p>
+                                    </div>
+                                    <canvas id="widget-chart3"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title d-flex justify-content-between">
+                                        <span>Sales this month</span>
+                                        <span class="dropdown">
+                                            <a href="#" data-toggle="dropdown" aria-haspopup="true"
+                                               aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                            </a>
+                                            <span class="dropdown-menu dropdown-menu-right">
+                                                <a href="#" class="dropdown-item">Action</a>
+                                                <a href="#" class="dropdown-item">Another action</a>
+                                                <a href="#" class="dropdown-item">Something else here</a>
+                                            </span>
+                                        </span>
+                                    </h6>
+                                    <div id="chart1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Customers</h6>
+                                    <div class="text-center">
+                                        <div class="mb-2">
+                                            <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                                        </div>
+                                        <div class="font-size-30 mb-1 font-weight-bold text-primary">1.241</div>
+                                        <p class="mb-0 text-muted">
+                                            <i class="fa fa-caret-up text-primary m-r-5"></i> 23% increase in Last week
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Average Order Value</h6>
+                                    <div class="text-center">
+                                        <div class="mb-2">
+                                            <span class="bar-3">2,5,9,6,5,2,4,3,7,5</span>
+                                        </div>
+                                        <div class="font-size-30 mb-1 font-weight-bold text-success">$732.52</div>
+                                        <p class="mb-0 text-muted">
+                                            <i class="fa fa-caret-down text-danger m-r-5"></i> 4 lead less than last
+                                            week
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- end::container -->
+
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<div th:replace="commons/layout::end">
+
+</div>
+
+</body>
+</html>
+
+

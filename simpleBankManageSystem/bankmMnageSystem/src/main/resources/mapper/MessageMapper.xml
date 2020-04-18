@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="csu.db.bankmanage.persistence.MessageMapper">
+
+    <cache/>
+
+    <insert id="addMessage">
+        INSERT INTO MESSAGE (USERNUM, TYPES, STATUS, CONTENT, TIME)
+	    VALUES (#{userNum}, #{type}, #{status}, #{content}, #{time})
+    </insert>
+
+    <select id="findMessageRecordByUserNum" parameterType="java.lang.String" resultType="java.util.HashMap"  useCache="false">
+        SELECT * FROM MESSAGE WHERE USERNUM = #{userNum}
+    </select>
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="csu.db.bankmanage.persistence.RepayLoanMapper">
+
+    <cache/>
+    <select id="findRepayLoanRecordByUserId" parameterType="int" resultType="java.util.HashMap"  useCache="false">
+        SELECT * FROM REPAYLOAN WHERE CARD_ID IN (SELECT ID FROM CARD WHERE USER_ID = #{userId})
+    </select>
+
+</mapper>

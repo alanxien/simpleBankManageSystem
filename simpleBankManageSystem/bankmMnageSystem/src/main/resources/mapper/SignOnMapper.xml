@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="csu.db.bankmanage.persistence.SignOnMapper">
+
+    <cache/>
+
+    <insert id="insertUser" parameterType="java.lang.String">
+        INSERT INTO SIGNON (USERNUM, PASSWD)
+        VALUES (#{userNum}, #{password})
+    </insert>
+
+    <select id="findUserByIDANDPassword" parameterType="csu.db.bankmanage.domain.SignOn" resultType="java.lang.String">
+        SELECT ID FROM SIGNON WHERE USERNUM=#{userNum} AND PASSWD=#{password}
+    </select>
+
+    <update id="changePassword" parameterType="java.lang.String">
+        UPDATE SIGNON SET PASSWD = #{newPassword} WHERE USERNUM = #{userNum}
+    </update>
+
+</mapper>

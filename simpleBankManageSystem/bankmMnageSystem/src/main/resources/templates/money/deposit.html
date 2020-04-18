@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('deposit')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">存款</h3>
+                <h5 th:text="${info}" style="color: red"></h5>
+                <form action="/deposit" method="post">
+                    <fieldset disabled>
+                        <div class="form-group">
+                            <label for="username">User</label>
+                            <input type="text" id="username" class="form-control" placeholder="User name" th:value="${session.username}">
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <label for="depositCard">Deposit Card</label>
+                        <select class="custom-select custom-select-lg" id="depositCard" name="depositCard">
+                            <option th:selected="${state.count==1}" th:value="${card['ID']}" th:each="card,state:${cardList}" th:text="${card['CARD_NUM']}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="depositMoney">Deposit Money</label>
+                        <input type="text" class="form-control" id="depositMoney" name="depositMoney"
+                               placeholder="Enter Deposit Money" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Card Id</th>
+                            <th scope="col">Card Num</th>
+                            <th scope="col">Balance</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="card,state:${cardList}">
+                            <th scope="row" th:text="${state.count}"></th>
+                            <td th:text="${card['ID']}"></td>
+                            <td th:text="${card['CARD_NUM']}"></td>
+                            <td th:text="${card['BALANCE']}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<div th:replace="commons/layout::end">
+
+</div>
+
+</body>
+</html>
+
+

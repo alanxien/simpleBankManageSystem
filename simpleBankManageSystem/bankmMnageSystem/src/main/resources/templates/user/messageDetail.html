@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('messageDetail')">
+
+</head>
+
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+
+        <div class="container">
+            <div class="col-md-12">
+                <h5>Message Detail</h5>
+                <hr>
+                <div class="card p-3">
+                    <blockquote class="blockquote mb-0 card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <footer class="blockquote-footer">
+                            <small class="text-muted">
+                                Someone famous in <cite title="Source Title">Source Title</cite>
+                            </small>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
+
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>

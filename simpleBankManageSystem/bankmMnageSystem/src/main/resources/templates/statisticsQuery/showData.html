@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('showData')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">统计查询</h4>
+
+                <table id="myTable" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Status</th>
+                        <th>Card ID</th>
+                        <th>Time</th>
+                        <th>Money</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="deposit,state:${depositArrayList}">
+                        <th scope="row" th:text="${state.count}"></th>
+                        <td>存款</td>
+                        <td th:text="${deposit['CARD_ID']}"></td>
+                        <td th:text="${deposit['TIME']}"></td>
+                        <td th:text="${deposit['MONEY']}"></td>
+                    </tr>
+                    <tr th:each="withdraw,state:${withdrawArrayList}">
+                        <th scope="row" th:text="${state.count}"></th>
+                        <td>取款</td>
+                        <td th:text="${withdraw['CARD_ID']}"></td>
+                        <td th:text="${withdraw['TIME']}"></td>
+                        <td th:text="${withdraw['MONEY']}"></td>
+                    </tr>
+                    <tr th:each="loan,state:${loanArrayList}">
+                        <th scope="row" th:text="${state.count}"></th>
+                        <td>贷款</td>
+                        <td th:text="${loan['CARD_ID']}"></td>
+                        <td th:text="${loan['TIME']}"></td>
+                        <td th:text="${loan['MONEY']}"></td>
+                    </tr>
+                    <tr th:each="repayLoan,state:${repayLoanArrayList}">
+                        <th scope="row" th:text="${state.count}"></th>
+                        <td>还款</td>
+                        <td th:text="${repayLoan['CARD_ID']}"></td>
+                        <td th:text="${repayLoan['TIME']}"></td>
+                        <td th:text="${repayLoan['MONEY']}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<div th:replace="commons/layout::end">
+
+</div>
+<!-- Css -->
+<link rel="stylesheet" href="vendors/dataTable/dataTables.min.css" type="text/css">
+
+<!-- DataTable -->
+<script src="vendors/dataTable/jquery.dataTables.min.js"></script>
+<script src="vendors/dataTable/dataTables.bootstrap4.min.js"></script>
+<script src="vendors/dataTable/dataTables.responsive.min.js"></script>
+
+<script>
+    $(document).ready(function (){
+        $('#myTable').DataTable();
+    });
+</script>
+
+</body>
+</html>
+
+

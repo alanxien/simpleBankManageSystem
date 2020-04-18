@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('viewLoan')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">各卡余额</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Card Id</th>
+                            <th scope="col">Card</th>
+                            <th scope="col">Balance</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="card,state:${cardList}">
+                            <th scope="row" th:text="${state.count}"></th>
+                            <td th:text="${card['ID']}"></td>
+                            <td th:text="${card['CARD_NUM']}"></td>
+                            <td th:text="${card['BALANCE']}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">借贷记录</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Card Id</th>
+                        <th scope="col">Loan Time</th>
+                        <th scope="col">Loan Money</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="loan,state:${loanRecord}">
+                        <th scope="row" th:text="${state.count}"></th>
+                        <td th:text="${loan['CARD_ID']}"></td>
+                        <td th:text="${loan['TIME']}"></td>
+                        <td th:text="${loan['MONEY']}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<div th:replace="commons/layout::end">
+
+</div>
+
+</body>
+</html>
+
+

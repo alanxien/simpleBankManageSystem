@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="csu.db.bankmanage.persistence.LoanMapper">
+
+    <cache/>
+    <select id="dealLoan" statementType="CALLABLE">
+        {call deal_loan(
+		#{cardId, mode=IN},
+		#{time, mode=IN},
+		#{money, mode=IN})}
+    </select>
+
+    <select id="repayLoan" statementType="CALLABLE">
+        {call repay_loan(
+		#{cardId, mode=IN},
+		#{time, mode=IN},
+		#{money, mode=IN})}
+    </select>
+
+    <select id="findLoanRecordByUserId" parameterType="int" resultType="java.util.HashMap"  useCache="false">
+        SELECT * FROM LOAN WHERE CARD_ID IN (SELECT ID FROM CARD WHERE USER_ID = #{userId})
+    </select>
+
+</mapper>

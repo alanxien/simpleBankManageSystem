@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('message')">
+
+</head>
+
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+
+        <div class="container">
+
+
+            <div class="card">
+                <div class="card-body">
+                    <table id="myTable" class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Content</th>
+                            <th>Time</th>
+<!--                            <th>Status</th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="message,state:${messageArrayList}">
+                            <th scope="row"><a href="#" th:text="${state.count}"></a></th>
+                            <td th:text="${message['TYPES']}"></td>
+                            <td th:text="${message['CONTENT']}"></td>
+                            <td th:text="${message['TIME']}"></td>
+<!--                            <td th:if="${message['STATUS']} nq 0">未读</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
+
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>

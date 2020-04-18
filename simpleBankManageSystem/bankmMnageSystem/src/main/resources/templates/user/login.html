@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('login')">
+
+</head>
+<body class="form-membership">
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+</div>
+<!-- end::preloader -->
+
+<div class="form-wrapper">
+
+    <!-- logo -->
+    <div id="logo">
+        <img class="logo" src="assets/media/image/logo.png" alt="image">
+        <img class="logo-dark" src="assets/media/image/logo-dark.png" alt="image">
+    </div>
+    <!-- ./ logo -->
+
+    <h5>Sign in</h5>
+
+    <!-- form -->
+    <form method="post" action="/login">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="User ID" name="userId" required autofocus>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" name="password" required>
+        </div>
+        <div class="form-group d-flex justify-content-between">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" checked="" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember me</label>
+            </div>
+            <a href="#">Reset password</a>
+        </div>
+        <button class="btn btn-primary btn-block">Sign in</button>
+        <hr>
+        <p class="text-muted">Login with your social media account.</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-dribbble">
+                    <i class="fa fa-dribbble"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-linkedin">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-google">
+                    <i class="fa fa-google"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-behance">
+                    <i class="fa fa-behance"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-floating btn-instagram">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <p class="text-muted">Don't have an account?</p>
+        <a href="/register" class="btn btn-outline-light btn-sm">Register now!</a>
+    </form>
+    <!-- ./ form -->
+
+</div>
+
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
+
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>

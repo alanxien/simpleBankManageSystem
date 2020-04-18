@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('remindBusiness')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">业务提醒</h2>
+                <h5 th:text="${info}" style="color: red"></h5>
+                <div class="row">
+                    <div class="col-md-8">
+                        <form action="/remindBusiness" method="post">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox custom-checkbox-warning">
+                                    <input type="checkbox" class="custom-control-input" id="depositCheck" th:attr="checked=${depositStatus}" value="1" name="checkbox">
+                                    <label class="custom-control-label" for="depositCheck">开通存款提醒</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox custom-checkbox-success">
+                                    <input type="checkbox" class="custom-control-input" id="withdrawCheck" th:attr="checked=${withdrawStatus}" name="checkbox" value="2" >
+                                    <label class="custom-control-label" for="withdrawCheck">开通取款提醒</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox custom-checkbox-danger">
+                                    <input type="checkbox" class="custom-control-input" id="loanCheck" th:attr="checked=${loanStatus}" name="checkbox" value="3" >
+                                    <label class="custom-control-label" for="loanCheck">开通贷款提醒</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox custom-checkbox-info">
+                                    <input type="checkbox" class="custom-control-input" id="repayLoanCheck" th:attr="checked=${repayLoanStatus}" name="checkbox" value="4" >
+                                    <label class="custom-control-label" for="repayLoanCheck">开通还款提醒</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<div th:replace="commons/layout::end">
+
+</div>
+
+</body>
+</html>
+
+

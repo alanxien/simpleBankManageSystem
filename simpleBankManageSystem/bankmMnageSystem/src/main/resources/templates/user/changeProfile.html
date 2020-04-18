@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('changeProfile')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">User Profile</h2>
+                            <h5 th:text="${info}" style="color: red"></h5>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form action="/changeProfile" method="post">
+                                        <div class="form-row form-group">
+                                            <div class="col">
+                                                <input type="text" class="form-control" th:value="${user.firstName}" placeholder="First name" name="firstName">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" th:value="${user.lastName}" placeholder="Last name" name="lastName">
+                                            </div>
+                                        </div>
+                                        <fieldset disabled>
+                                            <div class="form-group">
+                                                <label for="username">User Id</label>
+                                                <input type="text" id="username" class="form-control" placeholder="User name" th:value="${user.userNum}">
+                                            </div>
+                                        </fieldset>
+                                        <div class="form-group">
+                                            <label for="inputPhone">Phone</label>
+                                            <input type="text" class="form-control" id="inputPhone" name="phone"th:value="${user.phone}"
+                                                   placeholder="Enter Phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email"
+                                                   aria-describedby="emailHelp" placeholder="Enter email" th:value="${user.email}" name="email">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                                anyone else.
+                                            </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputCity">City</label>
+                                            <input type="text" class="form-control" id="inputCity" name="city"th:value="${user.city}"
+                                                   placeholder="Enter City">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPosition">Position</label>
+                                            <input type="text" class="form-control" id="inputPosition" th:value="${user.position}" name="position"
+                                                   placeholder="Enter Position">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputAddress">Address</label>
+                                            <input type="text" class="form-control" id="inputAddress" th:value="${user.address}" name="address" placeholder="1234 Main St">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Description">Description</label>
+                                            <textarea class="form-control" id="Description" rows="3" th:text="${user.description}" name="description"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Password">Password</label>
+                                            <input type="password" class="form-control" id="Password" name="password"
+                                                   placeholder="Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
+
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>

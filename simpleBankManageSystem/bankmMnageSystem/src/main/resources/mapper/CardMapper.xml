@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="csu.db.bankmanage.persistence.CardMapper">
+
+    <cache/>
+
+    <select id="getCardByCardNum" parameterType="java.lang.String" resultType="csu.db.bankmanage.domain.Card">
+        SELECT * FROM CARD WHERE CARD_NUM = #{cardNum}
+    </select>
+
+    <insert id="createCard">
+        INSERT INTO CARD (USER_ID, CARD_NUM, CREATE_TIME, BALANCE)
+        VALUES (#{userId}, #{cardNum}, #{time}, #{balance})
+    </insert>
+
+    <select id="findCardsByUserId" parameterType="int" resultType="java.util.HashMap"  useCache="false">
+        SELECT * FROM CARD WHERE USER_ID = #{userId}
+    </select>
+
+    <select id="getCardByCardId" parameterType="java.lang.Double" resultType="csu.db.bankmanage.domain.Card">
+         SELECT * FROM CARD WHERE ID = #{cardId}
+    </select>
+
+    <delete id="deleteCardById" parameterType="java.lang.Double">
+        DELETE FROM CARD WHERE ID = #{cardId}
+    </delete>
+</mapper>

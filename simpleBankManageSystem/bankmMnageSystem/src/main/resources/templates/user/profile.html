@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/template_head::head('profile')">
+
+</head>
+<body>
+
+<!-- begin::preloader-->
+<div th:replace="commons/layout::preloader">
+
+</div>
+<!-- end::preloader -->
+
+<!-- begin::navigation -->
+<div th:replace="commons/layout::navigation">
+
+</div>
+<!-- end::navigation -->
+
+<!-- begin::main -->
+<div id="main">
+
+    <!-- begin::header -->
+    <div th:replace="commons/layout::main_header">
+
+    </div>
+    <!-- end::header -->
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <figure class="avatar avatar-lg m-b-20">
+                                <img src="assets/media/image/user/man_avatar3.jpg" class="rounded-circle" alt="...">
+                            </figure>
+                            <h5 class="mb-1" th:text="${user.firstName} + '  ' + ${user.lastName}">Nikos Pedlow</h5>
+                            <p class="text-muted small">Welcome</p>
+                            <p th:text="${user.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus repudiandae eveniet
+                                harum.</p>
+                            <a href="/changeProfile" class="btn btn-outline-primary">
+                                <i data-feather="edit-2" class="mr-2"></i> Edit Profile
+                            </a>
+                        </div>
+                        <hr class="m-0">
+                    </div>
+
+                </div>
+                <div class="col-md-8">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title d-flex justify-content-between align-items-center">
+                                Information
+                                <a href="/changeProfile" class="btn btn-outline-light btn-sm">
+                                    <i data-feather="edit-2" class="mr-2"></i> Edit
+                                </a>
+                            </h6>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">First Name:</div>
+                                <div class="col-6" th:text="${user.firstName}">Johnatan</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">Last Name:</div>
+                                <div class="col-6" th:text="${user.lastName}">Due</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">User ID:</div>
+                                <div class="col-6" th:text="${user.userNum}">2625632</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">Position:</div>
+                                <div class="col-6" th:text="${user.position}">Web Designer</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">City:</div>
+                                <div class="col-6" th:text="${user.city}">New York, USA</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">Address:</div>
+                                <div class="col-6" th:text="${user.address}">228 Park Ave Str.</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">Phone:</div>
+                                <div class="col-6" th:text="${user.phone}">+1-202-555-0134</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6 text-muted">Email:</div>
+                                <div class="col-6" th:text="${user.email}">johndue@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- end::main-content -->
+
+    <!-- begin::footer -->
+    <footer th:replace="commons/layout::main_footer">
+
+    </footer>
+    <!-- end::footer -->
+
+</div>
+<!-- end::main -->
+
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
+
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
+</body>
+</html>
